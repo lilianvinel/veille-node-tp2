@@ -1,0 +1,386 @@
+@color_1: white;
+@color_2: #2d2d2d;
+@color_3: #4a4a4a;
+@color_4: #969696;
+@font_family_1: "Trebuchet MS", Arial, Helvetica, sans-serif;
+@font_family_2: Verdana, Geneva, sans-serif;
+@background_color_1: #f7f7f7;
+@background_color_2: #fdfdfd;
+@background_color_3: #00d3f5;
+@background_color_4: #333;
+@background_color_5: #111;
+@background_color_6: #f2f2f2;
+@background_color_7: #ddd;
+@background_color_8: #4a4a4a;
+@background_color_9: #333333;
+@background_color_10: #616161;
+@background_color_11: #cccccc;
+
+@charset "UTF-8";
+/*============= Styles généraux ================*/
+/* =======CHARTE DES GRANDEURS =======
+MOBILE : jusqu'à 640px;
+TABLETTE : entre 641px et 1024px;
+GRANDS ÉCRANS : plus que 1025px;
+*/
+/*=========================== STYLES MOBILES ======*/
+/*=========================== STYLES TABLETTE ======*/
+/*=========================== STYLES GRANDS ÉCRANS ======*/
+body {
+	margin: 0;
+	background-color: @background_color_1;
+	font-family: @font_family_1;
+	font-weight: bold;
+}
+#global {
+	max-width: 1024px;
+	width: 100%;
+	margin: auto;
+	background-color: @background_color_2;
+}
+header {
+	background-color: @background_color_3;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.titre {
+	font-size: 4vh;
+	font-family: @font_family_2;
+	color: @color_1;
+}
+h1 {
+	font-size: 3.5vh;
+	margin: 5vh 1vh 5vh 1vh;
+	color: @color_2;
+}
+ul {
+	display: flex;
+	justify-content: space-around;
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+	background-color: @background_color_4;
+}
+li {
+	float: left;
+	a {
+		display: block;
+		color: @color_1;
+		text-align: center;
+		padding: 14px 16px;
+		text-decoration: none;
+		&:hover {
+			background-color: @background_color_5;
+		}
+	}
+}
+input[type=text] {
+	padding: 12px 20px;
+	margin: 8px 0;
+	display: inline-block;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	box-sizing: border-box;
+}
+.membresDetruire {
+	display: flex;
+	justify-content: space-between;
+	margin: 1%;
+}
+table {
+	border-collapse: collapse;
+	text-align: center;
+	td {
+		border: 1px solid #ddd;
+		padding: 6px;
+	}
+	th {
+		border: 1px solid #ddd;
+		padding: 6px;
+		padding-top: 8px;
+		padding-bottom: 8px;
+		text-align: left;
+		background-color: @background_color_8;
+		text-align: center;
+	}
+	tr {
+		&:nth-child(even) {
+			background-color: @background_color_6;
+		}
+		&:hover {
+			background-color: @background_color_7;
+		}
+	}
+}
+.propriete {
+	text-align: center;
+}
+a {
+	text-decoration: none;
+	color: @color_1;
+	font-weight: bold;
+}
+.sauvegarder {
+	padding: 3px;
+	font-size: 20px;
+}
+.supprimer {
+	padding: 3px;
+	font-size: 20px;
+}
+svg {
+	color: @color_3;
+}
+footer {
+	font-size: 3vh;
+	padding: 3vh 1vh 3vh 1vh;
+	margin-top: 2%;
+	color: @color_2;
+	background: #333;
+	p {
+		margin: 0;
+		color: @color_4;
+	}
+}
+@media (max-width: 640px) {
+	#global {
+		text-align: center;
+	}
+	header {
+		height: 70px;
+	}
+	.formAjout {
+		margin: auto;
+		width: 95%;
+		display: flex;
+		flex-wrap: wrap;
+	}
+	.ajout {
+		width: 95%;
+	}
+	#recherche {
+		width: 80%;
+	}
+	input[type=submit] {
+		width: 100%;
+		background-color: @background_color_9;
+		color: @color_1;
+		padding: 14px 20px;
+		margin: 8px 0;
+		border: none;
+		border-radius: 4px;
+		cursor: pointer;
+		&:hover {
+			background-color: @background_color_10;
+		}
+	}
+	input[type=button] {
+		width: 100%;
+		background-color: @background_color_9;
+		color: @color_1;
+		padding: 14px 20px;
+		margin: 8px 0;
+		border: none;
+		border-radius: 4px;
+		cursor: pointer;
+		&:hover {
+			background-color: @background_color_10;
+		}
+	}
+	.fonctionnalite {
+		font-size: 100%;
+		width: 100%;
+		background-color: @background_color_9;
+		color: @color_1;
+		padding: 3%;
+		margin-top: 1px;
+		border: none;
+		cursor: pointer;
+		&:hover {
+			background-color: @background_color_10;
+		}
+	}
+	.formRecherche {
+		margin: auto;
+		width: 95%;
+		display: flex;
+		flex-wrap: wrap;
+	}
+	.envoiRecherche {
+		width: 13%;
+		margin: 8px 2px;
+		background-color: @background_color_11;
+		border-radius: 4px;
+		font-size: 120%;
+		padding: 2%;
+	}
+	table {
+		width: 100%;
+		margin-top: 3%;
+	}
+	.id {
+		display: none;
+	}
+}
+@media (min-width: 641px) and (max-width: 1024px) {
+	#global {
+		text-align: center;
+	}
+	header {
+		height: 100px;
+	}
+	.formAjout {
+		margin: auto;
+		width: 85%;
+		display: flex;
+		flex-wrap: wrap;
+	}
+	.ajout {
+		width: 100%;
+	}
+	#recherche {
+		width: 80%;
+	}
+	input[type=submit] {
+		width: 100%;
+		background-color: @background_color_9;
+		color: @color_1;
+		padding: 14px 20px;
+		margin: 8px 0;
+		border: none;
+		border-radius: 4px;
+		cursor: pointer;
+		&:hover {
+			background-color: @background_color_10;
+		}
+	}
+	input[type=button] {
+		width: 100%;
+		background-color: @background_color_9;
+		color: @color_1;
+		padding: 14px 20px;
+		margin: 8px 0;
+		border: none;
+		border-radius: 4px;
+		cursor: pointer;
+		&:hover {
+			background-color: @background_color_10;
+		}
+	}
+	.fonctionnalite {
+		font-size: 100%;
+		width: 80%;
+		background-color: @background_color_9;
+		color: @color_1;
+		padding: 3%;
+		margin-top: 1px;
+		border: none;
+		cursor: pointer;
+		&:hover {
+			background-color: @background_color_10;
+		}
+	}
+	.formRecherche {
+		margin: auto;
+		width: 70%;
+		display: flex;
+		flex-wrap: wrap;
+	}
+	.envoiRecherche {
+		width: 13%;
+		margin: 8px 2px;
+		background-color: @background_color_11;
+		border-radius: 4px;
+		font-size: 120%;
+		padding: 2%;
+	}
+	table {
+		width: 80%;
+		margin: 3% 10% 3% 10%;
+	}
+	.id {
+		display: table-cell;
+	}
+}
+@media (min-width: 1025px) {
+	#global {
+		text-align: center;
+	}
+	header {
+		height: 150px;
+	}
+	.formAjout {
+		margin: auto;
+		width: 60%;
+		display: flex;
+		flex-wrap: wrap;
+	}
+	.ajout {
+		width: 100%;
+	}
+	#recherche {
+		width: 80%;
+	}
+	input[type=submit] {
+		width: 100%;
+		background-color: @background_color_9;
+		color: @color_1;
+		padding: 14px 20px;
+		margin: 8px 0;
+		border: none;
+		border-radius: 4px;
+		cursor: pointer;
+		&:hover {
+			background-color: @background_color_10;
+		}
+	}
+	input[type=button] {
+		width: 100%;
+		background-color: @background_color_9;
+		color: @color_1;
+		padding: 14px 20px;
+		margin: 8px 0;
+		border: none;
+		border-radius: 4px;
+		cursor: pointer;
+		&:hover {
+			background-color: @background_color_10;
+		}
+	}
+	.fonctionnalite {
+		font-size: 100%;
+		background-color: @background_color_9;
+		color: @color_1;
+		padding: 3%;
+		margin-top: 1px;
+		border: none;
+		cursor: pointer;
+		&:hover {
+			background-color: @background_color_10;
+		}
+	}
+	.formRecherche {
+		margin: auto;
+		width: 60%;
+		display: flex;
+		flex-wrap: wrap;
+	}
+	.envoiRecherche {
+		width: 13%;
+		margin: 8px 2px;
+		background-color: @background_color_11;
+		border-radius: 4px;
+		font-size: 120%;
+		padding: 2%;
+	}
+	table {
+		width: 80%;
+		margin: 3% 10% 3% 10%;
+	}
+	.id {
+		display: table-cell;
+	}
+}

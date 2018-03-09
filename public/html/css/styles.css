@@ -1,0 +1,366 @@
+@charset "UTF-8";
+/*============= Styles généraux ================*/
+/* =======CHARTE DES GRANDEURS =======
+MOBILE : jusqu'à 640px;
+TABLETTE : entre 641px et 1024px;
+GRANDS ÉCRANS : plus que 1025px;
+*/
+/*=========================== STYLES MOBILES ======*/
+/*=========================== STYLES TABLETTE ======*/
+/*=========================== STYLES GRANDS ÉCRANS ======*/
+body {
+  margin: 0;
+  background-color: #f7f7f7;
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  font-weight: bold;
+}
+#global {
+  max-width: 1024px;
+  width: 100%;
+  margin: auto;
+  background-color: #fdfdfd;
+}
+header {
+  background-color: #00d3f5;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.titre {
+  font-size: 4vh;
+  font-family: Verdana, Geneva, sans-serif;
+  color: white;
+}
+h1 {
+  font-size: 3.5vh;
+  margin: 5vh 1vh 5vh 1vh;
+  color: #2d2d2d;
+}
+ul {
+  display: flex;
+  justify-content: space-around;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333333;
+}
+li {
+  float: left;
+}
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+li a:hover {
+  background-color: #111111;
+}
+input[type=text] {
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+.membresDetruire {
+  display: flex;
+  justify-content: space-between;
+  margin: 1%;
+}
+table {
+  border-collapse: collapse;
+  text-align: center;
+}
+table td {
+  border: 1px solid #ddd;
+  padding: 6px;
+}
+table th {
+  border: 1px solid #ddd;
+  padding: 6px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  text-align: left;
+  background-color: #4a4a4a;
+  text-align: center;
+}
+table tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+table tr:hover {
+  background-color: #dddddd;
+}
+.propriete {
+  text-align: center;
+}
+a {
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+}
+.sauvegarder {
+  padding: 3px;
+  font-size: 20px;
+}
+.supprimer {
+  padding: 3px;
+  font-size: 20px;
+}
+svg {
+  color: #4a4a4a;
+}
+footer {
+  font-size: 3vh;
+  padding: 3vh 1vh 3vh 1vh;
+  margin-top: 2%;
+  color: #2d2d2d;
+  background: #333;
+}
+footer p {
+  margin: 0;
+  color: #969696;
+}
+@media (max-width: 640px) {
+  #global {
+    text-align: center;
+  }
+  header {
+    height: 70px;
+  }
+  .formAjout {
+    margin: auto;
+    width: 95%;
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .ajout {
+    width: 95%;
+  }
+  #recherche {
+    width: 80%;
+  }
+  input[type=submit] {
+    width: 100%;
+    background-color: #333333;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  input[type=submit]:hover {
+    background-color: #616161;
+  }
+  input[type=button] {
+    width: 100%;
+    background-color: #333333;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  input[type=button]:hover {
+    background-color: #616161;
+  }
+  .fonctionnalite {
+    font-size: 100%;
+    width: 100%;
+    background-color: #333333;
+    color: white;
+    padding: 3%;
+    margin-top: 1px;
+    border: none;
+    cursor: pointer;
+  }
+  .fonctionnalite:hover {
+    background-color: #616161;
+  }
+  .formRecherche {
+    margin: auto;
+    width: 95%;
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .envoiRecherche {
+    width: 13%;
+    margin: 8px 2px;
+    background-color: #cccccc;
+    border-radius: 4px;
+    font-size: 120%;
+    padding: 2%;
+  }
+  table {
+    width: 100%;
+    margin-top: 3%;
+  }
+  .id {
+    display: none;
+  }
+}
+@media (min-width: 641px) and (max-width: 1024px) {
+  #global {
+    text-align: center;
+  }
+  header {
+    height: 100px;
+  }
+  .formAjout {
+    margin: auto;
+    width: 85%;
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .ajout {
+    width: 100%;
+  }
+  #recherche {
+    width: 80%;
+  }
+  input[type=submit] {
+    width: 100%;
+    background-color: #333333;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  input[type=submit]:hover {
+    background-color: #616161;
+  }
+  input[type=button] {
+    width: 100%;
+    background-color: #333333;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  input[type=button]:hover {
+    background-color: #616161;
+  }
+  .fonctionnalite {
+    font-size: 100%;
+    width: 80%;
+    background-color: #333333;
+    color: white;
+    padding: 3%;
+    margin-top: 1px;
+    border: none;
+    cursor: pointer;
+  }
+  .fonctionnalite:hover {
+    background-color: #616161;
+  }
+  .formRecherche {
+    margin: auto;
+    width: 70%;
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .envoiRecherche {
+    width: 13%;
+    margin: 8px 2px;
+    background-color: #cccccc;
+    border-radius: 4px;
+    font-size: 120%;
+    padding: 2%;
+  }
+  table {
+    width: 80%;
+    margin: 3% 10% 3% 10%;
+  }
+  .id {
+    display: table-cell;
+  }
+}
+@media (min-width: 1025px) {
+  #global {
+    text-align: center;
+  }
+  header {
+    height: 150px;
+  }
+  .formAjout {
+    margin: auto;
+    width: 60%;
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .ajout {
+    width: 100%;
+  }
+  #recherche {
+    width: 80%;
+  }
+  input[type=submit] {
+    width: 100%;
+    background-color: #333333;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  input[type=submit]:hover {
+    background-color: #616161;
+  }
+  input[type=button] {
+    width: 100%;
+    background-color: #333333;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  input[type=button]:hover {
+    background-color: #616161;
+  }
+  .fonctionnalite {
+    font-size: 100%;
+    background-color: #333333;
+    color: white;
+    padding: 3%;
+    margin-top: 1px;
+    border: none;
+    cursor: pointer;
+  }
+  .fonctionnalite:hover {
+    background-color: #616161;
+  }
+  .formRecherche {
+    margin: auto;
+    width: 60%;
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .envoiRecherche {
+    width: 13%;
+    margin: 8px 2px;
+    background-color: #cccccc;
+    border-radius: 4px;
+    font-size: 120%;
+    padding: 2%;
+  }
+  table {
+    width: 80%;
+    margin: 3% 10% 3% 10%;
+  }
+  .id {
+    display: table-cell;
+  }
+}

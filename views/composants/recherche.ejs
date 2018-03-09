@@ -1,0 +1,46 @@
+<script type="text/javascript">
+function recupValeurPrenom(){
+		var valeurPrenom = document.querySelector(".valPre").value;
+		if(valeurPrenom == ""){
+			valeurPrenom = "vide"
+		}
+		var url = "/rechercher/prenom/" + valeurPrenom
+		return window.location.replace(url);
+	}
+
+function recupValeurNom(){
+		var valeurNom = document.querySelector(".valNom").value;
+		if(valeurNom == ""){
+			valeurNom = "vide"
+		}
+		var url = "/rechercher/nom/" + valeurNom
+		return window.location.replace(url);
+	}
+
+function recupValeurTel(){
+		var valeurTel = document.querySelector(".valTel").value;
+		if(valeurTel == ""){
+			valeurTel = "vide"
+		}
+		var url = "/rechercher/telephone/" + valeurTel
+		return window.location.replace(url);
+	}		
+</script>
+<div class="formRecherche">
+Recherche par prenom: <input type = "text" name = "prenom" class="valPre" id="recherche">
+ <button type = "submit" class="envoiRecherche" onclick="recupValeurPrenom()"><i class="fas fa-search"></i></a></button> <br>
+Recherche par nom: <input type = "text" name = "nom" class="valNom" id="recherche">
+ <button type = "submit" class="envoiRecherche" onclick="recupValeurNom()"><i class="fas fa-search"></i></button> <br>
+Recherche par téléphone: <input type = "text" name = "telephone" class="valTel" placeholder="xxx-xxx-xxxx" id="recherche">
+ <button type = "submit" class="envoiRecherche" onclick="recupValeurTel()"><i class="fas fa-search"></i></button></div>
+
+<table class="tableau">
+ <% adresses.forEach(elm => {%>
+ <tr>
+ <td class='id'><%= elm._id %></td>
+ <td class='nom' ><%= elm.nom %></td>
+ <td class='prenom' ><%= elm.prenom %></td>
+ <td class='tel' ><%= elm.telephone %></td>
+ </tr>
+ <% }) %>
+ </table>

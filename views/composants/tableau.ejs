@@ -1,0 +1,162 @@
+<%
+	let objOrdre={
+	"_id": "asc",
+	"nom": "asc",
+	"prenom": "asc",
+	"telephone": "asc"
+	}
+
+	if(typeof cle !== "undefined" && cle){
+		objOrdre[cle]=ordre;
+	}
+%>
+
+<button class="fonctionnalite"><a href="/detruire">Detruire la liste</a></button>
+<button class="fonctionnalite"><a href="/peupler">Générer un membre</a></button>
+<button class="fonctionnalite" id="bouttonRecherche"><a href="/rechercher">Rechercher</a></button>
+<button class="fonctionnalite" id="ajout"><a>Ajouter un membre</a></button>
+<table class="tableau">
+ <tr>
+ <th class='id'><a href='/trier/_id/<%= objOrdre._id %>'>ID</a></th>
+ <th><a href='/trier/nom/<%= objOrdre.nom %>'><%=__('Nom') %></a></th> 
+ <th><a href='/trier/prenom/<%= objOrdre.prenom %>'><%=__('Prenom') %></a></th>
+ <th><a href='/trier/telephone/<%= objOrdre.telephone %>'><%=__('Telephone') %></a></th>
+ <th></th>
+ <th></th>
+ </tr>
+ <tr id="colVide" class="cacher">
+ <td class='id' id="elmLigneDiv"></td>
+ <td id="elmLigneDiv" contenteditable='true'></td>
+ <td id="elmLigneDiv" contenteditable='true'></td>
+ <td id="elmLigneDiv" contenteditable='true'></td>
+ <td class='supprimer'><a><i class="fas fa-trash-alt"></i></a></td>
+ <td class='sauvegarder'><a><i class="far fa-save"></i></a></td>
+ </tr>
+ <% adresses.forEach(elm => {%>
+ <tr>
+ <td class='id' id="elmLigneDiv"><%= elm._id %></td>
+ <td id="elmLigneDiv" contenteditable='true'><%= elm.nom %></td>
+ <td id="elmLigneDiv" contenteditable='true'><%= elm.prenom %></td>
+ <td id="elmLigneDiv" contenteditable='true'><%= elm.telephone %></td>
+ <td class='supprimer'><a><i class="fas fa-trash-alt"></i></a></td>
+ <td class='sauvegarder'><a><i class="far fa-save"></i></a></td>
+ </tr>
+ <% }) %>
+ </table>
+
+<form class='mon_formulaire' action="/ajax_modifier" name='mon_formulaire' id='mon_formulaire_modifier' method="POST" >
+ <input type = "hidden" placeholder="_id" name = "_id">
+ <input type = "hidden" placeholder="Nom" name = "nom"> 
+ <input type = "hidden" placeholder="Prénom" name = "prenom">
+ <input type = "hidden" placeholder="Téléphone" name = "telephone">
+</form>
+
+<style type="text/css">
+	.cacher{
+		display: none;
+	}
+</style>
+
+<script type="text/javascript">
+//FONCTION AJAX AJOUTER
+let boutonAjout = document.querySelector("#ajout")
+let trVide = document.querySelector("#colVide")
+let tableBody = document.querySelector('.tableau').children[0]
+let premierLigne = document.querySelector('.tableau').children[0].children[1]
+boutonAjout.addEventListener('click', function(){
+	let clone = trVide.cloneNode(true)
+	tableBody.insertBefore(clone,premierLigne)
+	let elmSauvegarder = document.querySelectorAll('.sauvegarder')
+	clone.classList.remove("cacher")
+	console.log(elmSauvegarder[0])
+
+elmSauvegarder[0].addEventListener('click', function(){
+
+ let laLigne = this.parentNode
+ console.log(this);
+
+ let nom = laLigne.children[1].innerHTML
+ let prenom = laLigne.children[2].innerHTML
+ let telephone = laLigne.children[3].innerHTML
+
+ xhr = new XMLHttpRequest();
+xhr.open('POST', "ajax_ajout", true);
+let data = {
+ "nom" : nom,
+ "prenom" : prenom,
+ "telephone" : telephone
+}
+
+let sData = JSON.stringify(data);
+xhr.setRequestHeader('Content-type', 'application/json');
+xhr.send(sData);
+
+ })
+})
+
+
+//FONCTION AJAX SUPPRIMER
+let elmSuppr = document.querySelectorAll('.supprimer')
+
+for (elm of elmSuppr)
+ {
+ elm.addEventListener('click', function(){
+ 	let laLigneSuppr = this.parentNode
+ 	let id = laLigneSuppr.children[0].innerHTML
+
+ xhr = new XMLHttpRequest();
+xhr.open('POST', "ajax_detruire", true);
+let data = { 
+ "_id" : id
+}
+console.log(data)
+let sData = JSON.stringify(data);
+xhr.setRequestHeader('Content-type', 'application/json');
+xhr.send(sData);
+laLigneSuppr.style.display = "none"
+ })
+}
+
+
+//FONCTION AJAX MODIFIER
+let elmSauvegarder = document.querySelectorAll('.sauvegarder')
+ console.log('elmSauvegarder = ' + elmSauvegarder.length)
+ for (elm of elmSauvegarder)
+ {
+ elm.addEventListener('click', function(){
+
+ let laLigne = this.parentNode
+ console.log(this);
+
+ let id = laLigne.children[0].innerHTML
+ let nom = laLigne.children[1].innerHTML
+ let prenom = laLigne.children[2].innerHTML
+ let telephone = laLigne.children[3].innerHTML
+
+ xhr = new XMLHttpRequest();
+xhr.open('POST', "ajax_modifier", true);
+let data = { 
+ "_id" : id, 
+ "nom" : nom,
+ "prenom" : prenom,
+ "telephone" : telephone
+}
+
+let sData = JSON.stringify(data);
+xhr.setRequestHeader('Content-type', 'application/json');
+xhr.send(sData);
+xhr.addEventListener("readystatechange", traiterRequest, false)
+
+ })
+ }
+
+function traiterRequest(e)
+{
+
+ if(xhr.readyState == 4 && xhr.status == 200)
+ {
+let reponse = JSON.parse(xhr.responseText);
+ console.log("reponse._id = " + reponse._id)
+ }
+}
+</script>
