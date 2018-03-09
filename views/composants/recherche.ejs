@@ -27,11 +27,11 @@ function recupValeurTel(){
 	}		
 </script>
 <div class="formRecherche">
-Recherche par prenom: <input type = "text" name = "prenom" class="valPre" id="recherche">
+<%=__('Recherche') %> <%=__('par') %> <%=__('prenom') %>: <input type = "text" name = "prenom" class="valPre" id="recherche">
  <button type = "submit" class="envoiRecherche" onclick="recupValeurPrenom()"><i class="fas fa-search"></i></a></button> <br>
-Recherche par nom: <input type = "text" name = "nom" class="valNom" id="recherche">
+<%=__('Recherche') %> <%=__('par') %> <%=__('nom') %>: <input type = "text" name = "nom" class="valNom" id="recherche">
  <button type = "submit" class="envoiRecherche" onclick="recupValeurNom()"><i class="fas fa-search"></i></button> <br>
-Recherche par téléphone: <input type = "text" name = "telephone" class="valTel" placeholder="xxx-xxx-xxxx" id="recherche">
+<%=__('Recherche') %> <%=__('par') %> <%=__('téléphone') %>: <input type = "text" name = "telephone" class="valTel" placeholder="xxx-xxx-xxxx" id="recherche">
  <button type = "submit" class="envoiRecherche" onclick="recupValeurTel()"><i class="fas fa-search"></i></button></div>
 
 <table class="tableau">
