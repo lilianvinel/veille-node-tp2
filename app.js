@@ -35,7 +35,7 @@ app.get('/:locale(en|fr)', function(req, res){
   res.redirect(req.get('referer'))
 })
 
-app.get('/accueil', (req, res) => {
+app.get('/', (req, res) => {
  res.render('accueil.ejs');
 })
 
@@ -46,7 +46,7 @@ app.get('/rechercher', (req, res) => {
 	})
 })
 
-app.get('/adresses', (req, res) => {
+app.get('/membres', (req, res) => {
  
 console.log(req.body)
  var cursor = db.collection('adresse')
