@@ -71,16 +71,6 @@ io.on('connection', function(socket){
   res.render('socket_vue.ejs')
 });
 
-app.post('/accueil',  (req, res) => {
- // Preparer l'output en format JSON
-// on utilise l'objet req.body pour récupérer les données POST
-db.collection('adresse').save(req.body, (err, result) => {
- if (err) return console.log(err)
- res.redirect('/adresses')
- })
-
-})
-
 app.get('/rechercher/:attribut/:valeur',  (req, res) => {
 	let attribut = '"'+ req.params.attribut +'"'
 
@@ -99,7 +89,7 @@ let cursor = db.collection('adresse').find(recherche
 app.get('/peupler', (req, res) => {
 	db.collection('adresse').save(JSON.parse(peupler()), (err, result) => {
  		if (err) return console.log(err)
- 		res.redirect('/adresses')
+ 		res.redirect('/membres')
  })
 })
 
@@ -123,7 +113,7 @@ app.post('/ajax_ajout',  (req, res) => {
 // on utilise l'objet req.body pour récupérer les données POST
 db.collection('adresse').save(req.body, (err, result) => {
  if (err) return console.log(err)
- res.redirect('/adresses')
+ res.redirect('/membres')
  })
 
 })
@@ -141,14 +131,6 @@ app.post('/ajax_modifier', (req,res) => {
    res.send(JSON.stringify(req.body));
    // res.status(204)
    })
-})
-
-app.get('/detruire/', (req, res) => {
- db.collection('adresse').deleteMany({}, (err, resultat) => {
-
-if (err) return console.log(err)
- res.redirect('/adresses')  // redirige vers la route qui affiche la collection
- })
 })
 
 app.post('/ajax_detruire', (req, res) => {
