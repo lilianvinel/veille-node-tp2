@@ -1,17 +1,17 @@
-<h2>Clavardage</h2>
+<h2><%=__('Clavardage') %></h2>
 <section id="enregistrement">
  <input type="text">
- <button onclick="enregistrement()">Enregistrement</button>
+ <button onclick="enregistrement()"><%=__('Enregistrement') %></button>
 </section>
 <section id="chat" style="display: none">
 	<table id="list_user"></table>
   <p id="chambre"></p>
-  <a href="/chat"><button>Deconnection</button></a>
+  <a href="/chat"><button><%=__('Deconnection') %></button></a>
 	<table id="message" style='float:left; text-align: left;background-color:#f2f2f2;'>
     
   </table>
 	<section>
-		<input id="msg_a_transmettre" type="text" name="textMessage"><button onclick="envoieMessage()">Envoyer</button>		
+		<input id="msg_a_transmettre" type="text" name="textMessage"><button onclick="envoieMessage()"><%=__('Envoyer') %></button>		
 	</section>
 </section>
 <script type="text/javascript">
